@@ -1,0 +1,53 @@
+prefixes:
+  # defaut
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  owl: http://www.w3.org/2002/07/owl#
+  xsd: http://www.w3.org/2001/XMLSchema#
+  # functions
+  grel: "http://users.ugent.be/~bjdmeest/function/grel.ttl#"
+  # vocabulary for our entities and predicates
+  schema: "https://schema.org/"
+  dbo: http://dbpedia.org/ontology/
+  fo: "https://www.bbc.co.uk/ontologies/fo/"  # food ontology with recipe, ingredient, ... all we need
+  rev: "http://purl.org/stuff/rev#"           # reviews
+  wd: https://www.wikidata.org/wiki/
+  food: "http://data.lirmm.fr/ontologies/food#"
+  ex: "http://example.org/"
+
+  # our own namespace
+  # using ken instead of example.org as our own namespace
+  # on w3id due to "Permanent Identifiers for the Web"
+  ken: "https://w3id.org/um/ken4256/"
+
+
+mappings:
+  recipe:
+    sources:
+      - ['products.json~jsonpath', "$.products[*]"]
+    s: ken:product/$(code)
+    po:
+      - [a, schema:Product]
+      - [schema:url, $(url)]
+      - [rdfs:label, $(product_name)]
+      - [ex:main_category, ken:category/$(main_category)~iri]
+      - [fo:shopping_category, ken:category/$(categories)~iri]
+      - [schema:Country, ken:country/$(countries)~iri]
+      - [fo:ingredients, ken:ingredient/$(ingredients)~iri]
+      - [food:nutritionScoreFrPer100g, $(nutriscore_score)]
+      - [food:nutritionGradeFrPer100g, $(nutriscore_grade)]
+      - [food:novaGroupPer100g, $(nova_group)]
+      - [food:energyKjPer100g, $(energy_kj_100g)]
+      - [food:energyKcalPer100g, $(energy_kcal_100g)]
+      - [food:energyPer100g, $(energy_100g)]
+      - [food:fatPer100g, $(fat_100g)]
+      - [food:saturatedFatPer100g, $(saturated_fat_100g)]
+      - [food:transFatPer100g, $(trans_fat_100g)]
+      - [food:cholesterolPer100g, $(cholesterol_100g)]
+      - [food:carbohydratesPer100g, $(carbohydrates_100g)]
+      - [food:sugarsPer100g, $(sugars_100g)]
+      - [food:fiberPer100g, $(fiber_100g)]
+      - [food:proteinsPer100g, $(proteins_100g)]
+      - [food:saltPer100g, $(salt_100g)]
+      - [food:sodiumPer100g, $(sodium_100g)]
+      - [food:nutritionScoreFrPer100g, $(nutrition_score_fr_100g)]

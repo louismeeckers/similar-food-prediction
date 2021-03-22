@@ -1,0 +1,28 @@
+prefixes:
+  # defaut
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  owl: http://www.w3.org/2002/07/owl#
+  xsd: http://www.w3.org/2001/XMLSchema#
+  # functions
+  grel: "http://users.ugent.be/~bjdmeest/function/grel.ttl#"
+  # vocabulary for our entities and predicates
+  schema: "https://schema.org/"
+  dbo: http://dbpedia.org/ontology/
+  fo: "https://www.bbc.co.uk/ontologies/fo/"  # food ontology with recipe, ingredient, ... all we need
+  rev: "http://purl.org/stuff/rev#"           # reviews
+  wd: https://www.wikidata.org/wiki/
+  # our own namespace
+  # using ken instead of example.org as our own namespace
+  # on w3id due to "Permanent Identifiers for the Web"
+  ken: "https://w3id.org/um/ken4256/"
+
+
+mappings:
+  category:
+    sources:
+      - ['categories.csv~csv']
+    s: ken:category/$(tag)
+    po:
+      - [a, fo:ShoppingCategory]
+      - [rdfs:label, $(label)]
