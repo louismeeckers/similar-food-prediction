@@ -1,16 +1,16 @@
 # Data
 Open Food Fact database: CSV Data Export:
 https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv
-➡️ products_original.csv
+<br>➡️ products_original.csv
 
 # To install
-download latest rmlmapper:
+download latest rmlmapper:<br>
 https://github.com/RMLio/rmlmapper-java/releases
 
-follow these steps for YARRRML:
+follow these steps for YARRRML:<br>
 https://rml.io/yarrrml/tutorial/getting-started/#writing-rules-on-your-computer
 
-download latest amie3:
+download latest amie3:<br>
 https://github.com/lajus/amie/releases/tag/3.0
 
 # Query Editor (excel) Cleaning
@@ -19,7 +19,7 @@ https://github.com/lajus/amie/releases/tag/3.0
 3. Delete all unnecessary columns
 4. Transform all number type column to text column (to avoid 8,4E14)
 5. Delete all '\'
-➡️ products_clean.csv
+<br>➡️ products_clean.csv
 
 # Python Cleaning
 1. Clean all unnecessary informations (e.g. quantity, proportion in 'ingredients_text')
@@ -32,7 +32,7 @@ https://github.com/lajus/amie/releases/tag/3.0
 	1. Create class Product
 	2. Generate all products
 	3. Export to JSON
-➡️ products.csv
+<br>➡️ products.csv
 
 🤔 Dataset of products exported to JSON because YARRRML does not support the use of the function **grel:string_split** the creation of new IRIs with CSV dataset.
 	
