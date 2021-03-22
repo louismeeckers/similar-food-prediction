@@ -18,7 +18,7 @@ https://github.com/lajus/amie/releases/tag/3.0
 2. Filter all products which have a 'nutriscore_score' value
 3. Delete all unnecessary columns
 4. Transform all number type column to text column (to avoid 8,4E14)
-5. Delete all '\'
+5. Delete all backslashes
 <br>➡️ products_clean.csv
 
 # Python Cleaning
