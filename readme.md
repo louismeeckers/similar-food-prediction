@@ -1,7 +1,8 @@
 # Data
 Open Food Fact database: CSV Data Export:
 https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv
-<br>➡️ products_original.csv
+
+➡️ products_original.csv
 
 # To install
 download latest rmlmapper:<br>
@@ -13,26 +14,34 @@ https://rml.io/yarrrml/tutorial/getting-started/#writing-rules-on-your-computer
 download latest amie3:<br>
 https://github.com/lajus/amie/releases/tag/3.0
 
+download latest graphdb:<br>
+https://graphdb.ontotext.com/
+
 # Query Editor (excel) Cleaning
 1. Filter all products where 'states' value includes 'en:complete'
 2. Filter all products which have a 'nutriscore_score' value
 3. Delete all unnecessary columns
 4. Transform all number type column to text column (to avoid 8,4E14)
 5. Delete all backslashes
-<br>➡️ products_clean.csv
+
+➡️ products_clean.csv
 
 # Python Cleaning
 1. Clean all unnecessary informations (e.g. quantity, proportion in 'ingredients_text')
-2. Create dataset of ingredients, countries, categories based on all products
+2. Create dataset of categories, ingredients, countries based on all products
 	1. Remove duplicated value
 	2. Sort the values (alphabetically sort)
 	3. Create 'id' column based on the label (because label can contain spaces)
 	4. Export to CSV
+
+➡️ categories.csv ingredients.csv countries.csv
+
 3. Create dataset of products
 	1. Create class Product
 	2. Generate all products
 	3. Export to JSON
-<br>➡️ products.csv
+
+➡️ products.csv
 
 🤔 Dataset of products exported to JSON because YARRRML does not support the use of the function **grel:string_split** the creation of new IRIs with CSV dataset.
 	
@@ -64,6 +73,15 @@ yarrrml-parser -i countries.yarrrml.yml -o countries.rml.ttl
 java -jar _rmlmapper.jar -m countries.rml.ttl -o countries.ttl -s turtle
 ```
 ➡️ countries.ttl
+
+# GraphDB
+## Initialization of the graph
+1. Create new repository
+2. Import RDF files (products.ttl, categories.tll, ingredients.ttl, countries.ttl) with "http://kg-course/mapping" for the target named graphs
+
+## Visualize the graph
+1. Explore > Visual Graph
+2. Search RDF resources (e.g. https://w3id.org/um/ken4256/category/cakes)
 
 # Linking
 ```bash
