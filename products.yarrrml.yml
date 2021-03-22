@@ -28,7 +28,7 @@ mappings:
     s: ken:product/$(code)
     po:
       - [a, schema:Product]
-      - [schema:url, $(url)]
+      # - [schema:url, $(url)]
       - [rdfs:label, $(product_name)]
       - [ex:main_category, ken:category/$(main_category)~iri]
       - [fo:shopping_category, ken:category/$(categories)~iri]
@@ -37,9 +37,9 @@ mappings:
       - [food:nutritionScoreFrPer100g, $(nutriscore_score)]
       - [food:nutritionGradeFrPer100g, $(nutriscore_grade)]
       - [food:novaGroupPer100g, $(nova_group)]
-      - [food:energyKjPer100g, $(energy_kj_100g)]
-      - [food:energyKcalPer100g, $(energy_kcal_100g)]
-      - [food:energyPer100g, $(energy_100g)]
+      # - [food:energyKjPer100g, $(energy_kj_100g)]
+      # - [food:energyKcalPer100g, $(energy_kcal_100g)]
+      # - [food:energyPer100g, $(energy_100g)]
       - [food:fatPer100g, $(fat_100g)]
       - [food:saturatedFatPer100g, $(saturated_fat_100g)]
       - [food:transFatPer100g, $(trans_fat_100g)]
