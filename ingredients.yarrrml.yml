@@ -19,7 +19,7 @@ prefixes:
 
 
 mappings:
-  cuisine:
+  ingredient:
     sources:
       - ['ingredients.csv~csv']
     s: ken:ingredient/$(id)

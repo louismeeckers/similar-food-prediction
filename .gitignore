@@ -1,4 +1,10 @@
 _rmlmapper.jar
 _amie.jar
 _limes.jar
+
 products_original.csv
+
+products.ttl
+categories.ttl
+ingredients.ttl
+countries.ttl
