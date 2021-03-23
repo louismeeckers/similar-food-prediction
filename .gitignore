@@ -8,3 +8,5 @@ products.ttl
 categories.ttl
 ingredients.ttl
 countries.ttl
+
+statements.tsv

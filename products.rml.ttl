@@ -20,6 +20,7 @@
 @prefix wd: <https://www.wikidata.org/wiki/>.
 @prefix food: <http://data.lirmm.fr/ontologies/food#>.
 @prefix ex: <http://example.org/>.
+@prefix essglobal: <http://purl.org/essglobal/vocab/>.
 @prefix ken: <https://w3id.org/um/ken4256/>.
 
 :rules_000 a void:Dataset;
@@ -56,7 +57,7 @@
 :map_recipe_000 rr:predicateObjectMap :pom_002.
 :pm_002 a rr:PredicateMap.
 :pom_002 rr:predicateMap :pm_002.
-:pm_002 rr:constant ex:main_category.
+:pm_002 rr:constant ken:ken.
 :pom_002 rr:objectMap :om_002.
 :om_002 a rr:ObjectMap;
     rr:template "https://w3id.org/um/ken4256/category/{main_category}";
@@ -74,7 +75,7 @@
 :map_recipe_000 rr:predicateObjectMap :pom_004.
 :pm_004 a rr:PredicateMap.
 :pom_004 rr:predicateMap :pm_004.
-:pm_004 rr:constant schema:Country.
+:pm_004 rr:constant essglobal:isAvailableAt.
 :pom_004 rr:objectMap :om_004.
 :om_004 a rr:ObjectMap;
     rr:template "https://w3id.org/um/ken4256/country/{countries}";
@@ -101,116 +102,98 @@
 :map_recipe_000 rr:predicateObjectMap :pom_007.
 :pm_007 a rr:PredicateMap.
 :pom_007 rr:predicateMap :pm_007.
-:pm_007 rr:constant food:nutritionGradeFrPer100g.
+:pm_007 rr:constant schema:calories.
 :pom_007 rr:objectMap :om_007.
 :om_007 a rr:ObjectMap;
-    rml:reference "nutriscore_grade";
+    rml:reference "energy_kcal_100g";
     rr:termType rr:Literal.
 :pom_008 a rr:PredicateObjectMap.
 :map_recipe_000 rr:predicateObjectMap :pom_008.
 :pm_008 a rr:PredicateMap.
 :pom_008 rr:predicateMap :pm_008.
-:pm_008 rr:constant food:novaGroupPer100g.
+:pm_008 rr:constant schema:fiberContent.
 :pom_008 rr:objectMap :om_008.
 :om_008 a rr:ObjectMap;
-    rml:reference "nova_group";
+    rml:reference "fat_100g";
     rr:termType rr:Literal.
 :pom_009 a rr:PredicateObjectMap.
 :map_recipe_000 rr:predicateObjectMap :pom_009.
 :pm_009 a rr:PredicateMap.
 :pom_009 rr:predicateMap :pm_009.
-:pm_009 rr:constant food:fatPer100g.
+:pm_009 rr:constant schema:unsaturatedFatContent.
 :pom_009 rr:objectMap :om_009.
 :om_009 a rr:ObjectMap;
-    rml:reference "fat_100g";
+    rml:reference "saturated_fat_100g";
     rr:termType rr:Literal.
 :pom_010 a rr:PredicateObjectMap.
 :map_recipe_000 rr:predicateObjectMap :pom_010.
 :pm_010 a rr:PredicateMap.
 :pom_010 rr:predicateMap :pm_010.
-:pm_010 rr:constant food:saturatedFatPer100g.
+:pm_010 rr:constant schema:transFatContent.
 :pom_010 rr:objectMap :om_010.
 :om_010 a rr:ObjectMap;
-    rml:reference "saturated_fat_100g";
+    rml:reference "trans_fat_100g";
     rr:termType rr:Literal.
 :pom_011 a rr:PredicateObjectMap.
 :map_recipe_000 rr:predicateObjectMap :pom_011.
 :pm_011 a rr:PredicateMap.
 :pom_011 rr:predicateMap :pm_011.
-:pm_011 rr:constant food:transFatPer100g.
+:pm_011 rr:constant schema:cholesterolContent.
 :pom_011 rr:objectMap :om_011.
 :om_011 a rr:ObjectMap;
-    rml:reference "trans_fat_100g";
+    rml:reference "cholesterol_100g";
     rr:termType rr:Literal.
 :pom_012 a rr:PredicateObjectMap.
 :map_recipe_000 rr:predicateObjectMap :pom_012.
 :pm_012 a rr:PredicateMap.
 :pom_012 rr:predicateMap :pm_012.
-:pm_012 rr:constant food:cholesterolPer100g.
+:pm_012 rr:constant schema:carbohydrateContent.
 :pom_012 rr:objectMap :om_012.
 :om_012 a rr:ObjectMap;
-    rml:reference "cholesterol_100g";
+    rml:reference "carbohydrates_100g";
     rr:termType rr:Literal.
 :pom_013 a rr:PredicateObjectMap.
 :map_recipe_000 rr:predicateObjectMap :pom_013.
 :pm_013 a rr:PredicateMap.
 :pom_013 rr:predicateMap :pm_013.
-:pm_013 rr:constant food:carbohydratesPer100g.
+:pm_013 rr:constant schema:sugarContent.
 :pom_013 rr:objectMap :om_013.
 :om_013 a rr:ObjectMap;
-    rml:reference "carbohydrates_100g";
+    rml:reference "sugars_100g";
     rr:termType rr:Literal.
 :pom_014 a rr:PredicateObjectMap.
 :map_recipe_000 rr:predicateObjectMap :pom_014.
 :pm_014 a rr:PredicateMap.
 :pom_014 rr:predicateMap :pm_014.
-:pm_014 rr:constant food:sugarsPer100g.
+:pm_014 rr:constant schema:fiberContent.
 :pom_014 rr:objectMap :om_014.
 :om_014 a rr:ObjectMap;
-    rml:reference "sugars_100g";
+    rml:reference "fiber_100g";
     rr:termType rr:Literal.
 :pom_015 a rr:PredicateObjectMap.
 :map_recipe_000 rr:predicateObjectMap :pom_015.
 :pm_015 a rr:PredicateMap.
 :pom_015 rr:predicateMap :pm_015.
-:pm_015 rr:constant food:fiberPer100g.
+:pm_015 rr:constant schema:proteinContent.
 :pom_015 rr:objectMap :om_015.
 :om_015 a rr:ObjectMap;
-    rml:reference "fiber_100g";
+    rml:reference "proteins_100g";
     rr:termType rr:Literal.
 :pom_016 a rr:PredicateObjectMap.
 :map_recipe_000 rr:predicateObjectMap :pom_016.
 :pm_016 a rr:PredicateMap.
 :pom_016 rr:predicateMap :pm_016.
-:pm_016 rr:constant food:proteinsPer100g.
+:pm_016 rr:constant food:saltPer100g.
 :pom_016 rr:objectMap :om_016.
 :om_016 a rr:ObjectMap;
-    rml:reference "proteins_100g";
+    rml:reference "salt_100g";
     rr:termType rr:Literal.
 :pom_017 a rr:PredicateObjectMap.
 :map_recipe_000 rr:predicateObjectMap :pom_017.
 :pm_017 a rr:PredicateMap.
 :pom_017 rr:predicateMap :pm_017.
-:pm_017 rr:constant food:saltPer100g.
+:pm_017 rr:constant schema:sodiumContent.
 :pom_017 rr:objectMap :om_017.
 :om_017 a rr:ObjectMap;
-    rml:reference "salt_100g";
-    rr:termType rr:Literal.
-:pom_018 a rr:PredicateObjectMap.
-:map_recipe_000 rr:predicateObjectMap :pom_018.
-:pm_018 a rr:PredicateMap.
-:pom_018 rr:predicateMap :pm_018.
-:pm_018 rr:constant food:sodiumPer100g.
-:pom_018 rr:objectMap :om_018.
-:om_018 a rr:ObjectMap;
     rml:reference "sodium_100g";
-    rr:termType rr:Literal.
-:pom_019 a rr:PredicateObjectMap.
-:map_recipe_000 rr:predicateObjectMap :pom_019.
-:pm_019 a rr:PredicateMap.
-:pom_019 rr:predicateMap :pm_019.
-:pm_019 rr:constant food:nutritionScoreFrPer100g.
-:pom_019 rr:objectMap :om_019.
-:om_019 a rr:ObjectMap;
-    rml:reference "nutrition_score_fr_100g";
     rr:termType rr:Literal.

@@ -14,6 +14,7 @@ prefixes:
   wd: https://www.wikidata.org/wiki/
   food: "http://data.lirmm.fr/ontologies/food#"
   ex: "http://example.org/"
+  essglobal: "http://purl.org/essglobal/vocab/"
 
   # our own namespace
   # using ken instead of example.org as our own namespace
@@ -28,26 +29,22 @@ mappings:
     s: ken:product/$(code)
     po:
       - [a, schema:Product]
-      # - [schema:url, $(url)]
       - [rdfs:label, $(product_name)]
-      - [ex:main_category, ken:category/$(main_category)~iri]
+      - [ken:ken:mainCategory, ken:category/$(main_category)~iri]
       - [fo:shopping_category, ken:category/$(categories)~iri]
-      - [schema:Country, ken:country/$(countries)~iri]
+      - [essglobal:isAvailableAt, ken:country/$(countries)~iri]
       - [fo:ingredients, ken:ingredient/$(ingredients)~iri]
       - [food:nutritionScoreFrPer100g, $(nutriscore_score)]
-      - [food:nutritionGradeFrPer100g, $(nutriscore_grade)]
-      - [food:novaGroupPer100g, $(nova_group)]
-      # - [food:energyKjPer100g, $(energy_kj_100g)]
-      # - [food:energyKcalPer100g, $(energy_kcal_100g)]
-      # - [food:energyPer100g, $(energy_100g)]
-      - [food:fatPer100g, $(fat_100g)]
-      - [food:saturatedFatPer100g, $(saturated_fat_100g)]
-      - [food:transFatPer100g, $(trans_fat_100g)]
-      - [food:cholesterolPer100g, $(cholesterol_100g)]
-      - [food:carbohydratesPer100g, $(carbohydrates_100g)]
-      - [food:sugarsPer100g, $(sugars_100g)]
-      - [food:fiberPer100g, $(fiber_100g)]
-      - [food:proteinsPer100g, $(proteins_100g)]
+      # - [food:nutritionGradeFrPer100g, $(nutriscore_grade)]
+      # - [food:novaGroupPer100g, $(nova_group)]
+      - [schema:calories, $(energy_kcal_100g)]
+      - [schema:fiberContent, $(fat_100g)]
+      - [schema:unsaturatedFatContent, $(saturated_fat_100g)]
+      - [schema:transFatContent, $(trans_fat_100g)]
+      - [schema:cholesterolContent, $(cholesterol_100g)]
+      - [schema:carbohydrateContent, $(carbohydrates_100g)]
+      - [schema:sugarContent, $(sugars_100g)]
+      - [schema:fiberContent, $(fiber_100g)]
+      - [schema:proteinContent, $(proteins_100g)]
       - [food:saltPer100g, $(salt_100g)]
-      - [food:sodiumPer100g, $(sodium_100g)]
-      - [food:nutritionScoreFrPer100g, $(nutrition_score_fr_100g)]
+      - [schema:sodiumContent, $(sodium_100g)]

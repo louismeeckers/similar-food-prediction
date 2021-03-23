@@ -9,13 +9,13 @@ prefixes:
   # vocabulary for our entities and predicates
   schema: "https://schema.org/"
   dbo: http://dbpedia.org/ontology/
-  fo: "https://www.bbc.co.uk/ontologies/fo/"  # food ontology with recipe, ingredient, ... all we need
+  fo: https://www.bbc.co.uk/ontologies/fo/  # food ontology with recipe, ingredient, ... all we need
   rev: "http://purl.org/stuff/rev#"           # reviews
   wd: https://www.wikidata.org/wiki/
   # our own namespace
   # using ken instead of example.org as our own namespace
   # on w3id due to "Permanent Identifiers for the Web"
-  ken: "https://w3id.org/um/ken4256/"
+  ken: https://w3id.org/um/ken4256/
 
 
 mappings:

@@ -45,7 +45,7 @@ https://graphdb.ontotext.com/
 
 🤔 Dataset of products exported to JSON because YARRRML does not support the use of the function **grel:string_split** the creation of new IRIs with CSV dataset.
 	
-# Mapping (YARRRML to RDF)
+# Mapping (YARRRML to RML to RDF)
 ## Product
 ```bash
 yarrrml-parser -i products.yarrrml.yml -o products.rml.ttl
@@ -77,13 +77,23 @@ java -jar _rmlmapper.jar -m countries.rml.ttl -o countries.ttl -s turtle
 # GraphDB
 ## Initialization of the graph
 1. Create new repository
-2. Import RDF files (products.ttl, categories.tll, ingredients.ttl, countries.ttl) with "http://kg-course/mapping" for the target named graphs
+2. Import RDF files (products.ttl, categories.tll, ingredients.ttl, countries.ttl) with http://kg-course/mapping for the target named graphs
 
 ## Visualize the graph
 1. Explore > Visual Graph
 2. Search RDF resources (e.g. https://w3id.org/um/ken4256/category/cakes)
 
-# Linking
+# Linking - countries (dbpedia)
 ```bash
 java -jar _limes.jar _config_limes.xml
+```
+
+# AMIE - rule mining
+```bash
+# default run
+java -jar _amie.jar statements.tsv
+# save into file
+java -jar _amie.jar -UseGCOverheadLimit -Xmx4G -oute statements.tsv > output/rules_default.out -maxad 4 -minis 1
+# help / documentation
+java -jar _amie.jar -h
 ```
