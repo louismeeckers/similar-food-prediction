@@ -1,5 +1,16 @@
+# Finding similar foods to change the unhealthy diet using Knowledge Graphs
+
+This project consist of integrating one important publicly available data sets on foods (Open Food Facts).
+In the first phase of this project, I transformed the dataset to an unified Knowledge Graph with the use of YARRRML (data serialization language).
+Then I implemented AMIE, a graph mining algorithm in order to infer new rules and increase the completeness of the graph.
+There is often a trade off between coverage and correctness. Since uncertain rules usually do not create true facts exclusively (otherwise they would be called certain rules),
+there will wrong relations will be created too.
+
 # Data
-Open Food Fact database: CSV Data Export:
+Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization.
+It consists of a database of food products with ingredients, allergens, nutrition facts and all the tidbits of information we can find on product labels.
+The database gathers around 1 683 756 products.
+CSV Data Export:
 https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv
 
 ➡️ products_original.csv
@@ -87,6 +98,7 @@ java -jar _rmlmapper.jar -m countries.rml.ttl -o countries.ttl -s turtle
 ```bash
 java -jar _limes.jar _config_limes.xml
 ```
+<<<<<<< HEAD
 
 # AMIE - rule mining
 ```bash
@@ -97,3 +109,5 @@ java -jar _amie.jar -UseGCOverheadLimit -Xmx4G -oute statements.tsv > output/rul
 # help / documentation
 java -jar _amie.jar -h
 ```
+=======
+>>>>>>> d2c1bf5a0c5c8fa8618c72023c363a1d5a3e6ebb
