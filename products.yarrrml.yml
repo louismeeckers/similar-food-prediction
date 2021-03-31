@@ -30,11 +30,11 @@ mappings:
     po:
       - [a, schema:Product]
       - [rdfs:label, $(product_name)]
-      - [ken:ken:mainCategory, ken:category/$(main_category)~iri]
+      - [ken:mainCategory, ken:category/$(main_category)~iri]
       - [fo:shopping_category, ken:category/$(categories)~iri]
       - [essglobal:isAvailableAt, ken:country/$(countries)~iri]
       - [fo:ingredients, ken:ingredient/$(ingredients)~iri]
-      - [food:nutritionScoreFrPer100g, $(nutriscore_score)]
+      - [food:nutritionScoreFrPer100g, ken:$(nutriscore_score)]
       # - [food:nutritionGradeFrPer100g, $(nutriscore_grade)]
       # - [food:novaGroupPer100g, $(nova_group)]
       - [schema:calories, $(energy_kcal_100g)]

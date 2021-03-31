@@ -98,7 +98,6 @@ java -jar _rmlmapper.jar -m countries.rml.ttl -o countries.ttl -s turtle
 ```bash
 java -jar _limes.jar _config_limes.xml
 ```
-<<<<<<< HEAD
 
 # AMIE - rule mining
 ```bash
@@ -109,5 +108,3 @@ java -jar _amie.jar -UseGCOverheadLimit -Xmx4G -oute statements.tsv > output/rul
 # help / documentation
 java -jar _amie.jar -h
 ```
-=======
->>>>>>> d2c1bf5a0c5c8fa8618c72023c363a1d5a3e6ebb

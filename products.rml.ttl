@@ -57,7 +57,7 @@
 :map_recipe_000 rr:predicateObjectMap :pom_002.
 :pm_002 a rr:PredicateMap.
 :pom_002 rr:predicateMap :pm_002.
-:pm_002 rr:constant ken:ken.
+:pm_002 rr:constant ken:mainCategory.
 :pom_002 rr:objectMap :om_002.
 :om_002 a rr:ObjectMap;
     rr:template "https://w3id.org/um/ken4256/category/{main_category}";
@@ -96,7 +96,7 @@
 :pm_006 rr:constant food:nutritionScoreFrPer100g.
 :pom_006 rr:objectMap :om_006.
 :om_006 a rr:ObjectMap;
-    rml:reference "nutriscore_score";
+    rr:template "https://w3id.org/um/ken4256/{nutriscore_score}";
     rr:termType rr:Literal.
 :pom_007 a rr:PredicateObjectMap.
 :map_recipe_000 rr:predicateObjectMap :pom_007.
