@@ -34,7 +34,7 @@ mappings:
       - [fo:shopping_category, ken:category/$(categories)~iri]
       - [essglobal:isAvailableAt, ken:country/$(countries)~iri]
       - [fo:ingredients, ken:ingredient/$(ingredients)~iri]
-      - [food:nutritionScoreFrPer100g, ken:$(nutriscore_score)]
+      - [food:nutritionScoreFrPer100g, ken:nutriscore/$(nutriscore_grade)~iri]
       # - [food:nutritionGradeFrPer100g, $(nutriscore_grade)]
       # - [food:novaGroupPer100g, $(nova_group)]
       - [schema:calories, $(energy_kcal_100g)]

@@ -1,0 +1,12 @@
+﻿@prefix ken: <https://w3id.org/um/ken4256/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<https://w3id.org/um/ken4256/nutriscore/a> a ken:Nutriscore .
+
+<https://w3id.org/um/ken4256/nutriscore/b> a ken:Nutriscore .
+
+<https://w3id.org/um/ken4256/nutriscore/c> a ken:Nutriscore .
+
+<https://w3id.org/um/ken4256/nutriscore/d> a ken:Nutriscore .
+
+<https://w3id.org/um/ken4256/nutriscore/e> a ken:Nutriscore .
