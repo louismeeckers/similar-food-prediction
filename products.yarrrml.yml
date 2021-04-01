@@ -1,5 +1,5 @@
 prefixes:
-  # defaut
+  # default
   rdfs: http://www.w3.org/2000/01/rdf-schema#
   rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
   owl: http://www.w3.org/2002/07/owl#
@@ -37,14 +37,14 @@ mappings:
       - [food:nutritionScoreFrPer100g, ken:nutriscore/$(nutriscore_grade)~iri]
       # - [food:nutritionGradeFrPer100g, $(nutriscore_grade)]
       # - [food:novaGroupPer100g, $(nova_group)]
-      - [schema:calories, $(energy_kcal_100g)]
-      - [schema:fiberContent, $(fat_100g)]
-      - [schema:unsaturatedFatContent, $(saturated_fat_100g)]
-      - [schema:transFatContent, $(trans_fat_100g)]
-      - [schema:cholesterolContent, $(cholesterol_100g)]
-      - [schema:carbohydrateContent, $(carbohydrates_100g)]
-      - [schema:sugarContent, $(sugars_100g)]
-      - [schema:fiberContent, $(fiber_100g)]
-      - [schema:proteinContent, $(proteins_100g)]
-      - [food:saltPer100g, $(salt_100g)]
-      - [schema:sodiumContent, $(sodium_100g)]
+      - [schema:calories, $(energy_kcal_100g), xsd:decimal]
+      - [schema:fiberContent, $(fat_100g), xsd:decimal]
+      - [schema:unsaturatedFatContent, $(saturated_fat_100g), xsd:decimal]
+      - [schema:transFatContent, $(trans_fat_100g), xsd:decimal]
+      - [schema:cholesterolContent, $(cholesterol_100g), xsd:decimal]
+      - [schema:carbohydrateContent, $(carbohydrates_100g), xsd:decimal]
+      - [schema:sugarContent, $(sugars_100g), xsd:decimal]
+      - [schema:fiberContent, $(fiber_100g), xsd:decimal]
+      - [schema:proteinContent, $(proteins_100g), xsd:decimal]
+      - [food:saltPer100g, $(salt_100g), xsd:decimal]
+      - [schema:sodiumContent, $(sodium_100g), xsd:decimal]

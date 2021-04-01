@@ -29,6 +29,11 @@
       <NAMESPACE>http://worldbank.org/</NAMESPACE>
       <LABEL>wb</LABEL>
   </PREFIX>
+  <PREFIX>
+    <NAMESPACE>https://www.bbc.co.uk/ontologies/fo/</NAMESPACE>
+    <LABEL>fo</LABEL>
+  </PREFIX>
+  <PREFIX>
 
   <SOURCE>
     <ID>openfoodfact</ID>

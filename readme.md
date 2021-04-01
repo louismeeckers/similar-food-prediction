@@ -108,3 +108,90 @@ java -jar _amie.jar -UseGCOverheadLimit -Xmx4G -oute statements.tsv > output/rul
 # help / documentation
 java -jar _amie.jar -h
 ```
+
+# SPARQL REQUESTS
+## Prefixes of all requests
+```
+PREFIX : <http://mapping.example.com/>
+PREFIX schema: <https://schema.org/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ken: <https://w3id.org/um/ken4256/>
+PREFIX fo: <https://www.bbc.co.uk/ontologies/fo/>
+PREFIX food: <http://data.lirmm.fr/ontologies/food#>
+```
+
+## Embedding: Creation of similarHealthierProduct relations between products
+Added 501061 statements in the graph: http://kg-course/embedding.
+Update took 1h 44m 20s. 
+```
+INSERT {
+    GRAPH <http://kg-course/embedding>
+    { ?product2 ken:similarHealthierProduct ?product1 }
+}
+# SELECT DISTINCT ?product1 ?product1Nutriscore ?product2 ?product2Nutriscore
+WHERE { 
+	?product1 a schema:Product ;
+          rdfs:label ?product1Label ;
+          food:nutritionScoreFrPer100g ?product1Nutriscore ;
+          ken:mainCategory ?mainCategory1 ;
+          fo:shopping_category ?category1 ;
+          fo:shopping_category ?category11 .
+    ?category1 a fo:ShoppingCategory ;
+          rdfs:label ?category1Label .
+    ?product2 a schema:Product ;
+          rdfs:label ?product2Label ;
+          food:nutritionScoreFrPer100g ?product2Nutriscore ;
+          ken:mainCategory ?mainCategory2 ;
+          fo:shopping_category ?category2 ;
+          fo:shopping_category ?category22 .
+    ?category2 a fo:ShoppingCategory ;
+          rdfs:label ?category2Label .
+
+    FILTER(?product1Nutriscore = <https://w3id.org/um/ken4256/nutriscore/a> || ?product1Nutriscore = <https://w3id.org/um/ken4256/nutriscore/b>)
+    FILTER(?product2Nutriscore != <https://w3id.org/um/ken4256/nutriscore/a> && ?product2Nutriscore != <https://w3id.org/um/ken4256/nutriscore/b>)
+    
+    FILTER(?product1 != ?product2)
+    
+    FILTER(?mainCategory1 != ?category1)
+    FILTER(?mainCategory1 != ?category11)
+    FILTER(?category1 != ?category11)
+    
+    FILTER(?mainCategory2 != ?category2)
+     FILTER(?mainCategory2 != ?category22)
+    FILTER(?category2 != ?category22)
+    
+    FILTER(?mainCategory1 = ?mainCategory2)
+    FILTER(?category1 = ?category2)
+    FILTER(?category11 = ?category22)
+}
+```
+
+## List top number of similarProduct for each product
+```
+SELECT ?product ?mainCategory (COUNT(?similarProduct) AS ?count)
+WHERE { 
+	?product a schema:Product ;
+          ken:mainCategory ?mainCategory ;
+          ken:similarHealthierProduct ?similarProduct.
+}
+GROUP BY ?product ?mainCategory
+ORDER BY DESC(?count)
+```
+
+## Count Products of specific (main) category
+```
+SELECT DISTINCT (COUNT(DISTINCT ?product) AS ?count)
+WHERE { 
+	?product a schema:Product ;
+          ken:mainCategory ?mainCategory ;
+          fo:shopping_category ?category1 ;
+#          fo:shopping_category ?category11 ;
+    	  ken:similarHealthierProduct ?similarProduct .
+    
+    FILTER(?mainCategory = <https://w3id.org/um/ken4256/category/yogurts>)
+    FILTER(?category1 = <https://w3id.org/um/ken4256/category/dairies>)
+#    FILTER(?category11 = <https://w3id.org/um/ken4256/category/fermented-milk-products>)
+}
+```

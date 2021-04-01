@@ -106,7 +106,8 @@
 :pom_007 rr:objectMap :om_007.
 :om_007 a rr:ObjectMap;
     rml:reference "energy_kcal_100g";
-    rr:termType rr:Literal.
+    rr:termType rr:Literal;
+    rr:datatype xsd:decimal.
 :pom_008 a rr:PredicateObjectMap.
 :map_recipe_000 rr:predicateObjectMap :pom_008.
 :pm_008 a rr:PredicateMap.
@@ -115,7 +116,8 @@
 :pom_008 rr:objectMap :om_008.
 :om_008 a rr:ObjectMap;
     rml:reference "fat_100g";
-    rr:termType rr:Literal.
+    rr:termType rr:Literal;
+    rr:datatype xsd:decimal.
 :pom_009 a rr:PredicateObjectMap.
 :map_recipe_000 rr:predicateObjectMap :pom_009.
 :pm_009 a rr:PredicateMap.
@@ -124,7 +126,8 @@
 :pom_009 rr:objectMap :om_009.
 :om_009 a rr:ObjectMap;
     rml:reference "saturated_fat_100g";
-    rr:termType rr:Literal.
+    rr:termType rr:Literal;
+    rr:datatype xsd:decimal.
 :pom_010 a rr:PredicateObjectMap.
 :map_recipe_000 rr:predicateObjectMap :pom_010.
 :pm_010 a rr:PredicateMap.
@@ -133,7 +136,8 @@
 :pom_010 rr:objectMap :om_010.
 :om_010 a rr:ObjectMap;
     rml:reference "trans_fat_100g";
-    rr:termType rr:Literal.
+    rr:termType rr:Literal;
+    rr:datatype xsd:decimal.
 :pom_011 a rr:PredicateObjectMap.
 :map_recipe_000 rr:predicateObjectMap :pom_011.
 :pm_011 a rr:PredicateMap.
@@ -142,7 +146,8 @@
 :pom_011 rr:objectMap :om_011.
 :om_011 a rr:ObjectMap;
     rml:reference "cholesterol_100g";
-    rr:termType rr:Literal.
+    rr:termType rr:Literal;
+    rr:datatype xsd:decimal.
 :pom_012 a rr:PredicateObjectMap.
 :map_recipe_000 rr:predicateObjectMap :pom_012.
 :pm_012 a rr:PredicateMap.
@@ -151,7 +156,8 @@
 :pom_012 rr:objectMap :om_012.
 :om_012 a rr:ObjectMap;
     rml:reference "carbohydrates_100g";
-    rr:termType rr:Literal.
+    rr:termType rr:Literal;
+    rr:datatype xsd:decimal.
 :pom_013 a rr:PredicateObjectMap.
 :map_recipe_000 rr:predicateObjectMap :pom_013.
 :pm_013 a rr:PredicateMap.
@@ -160,7 +166,8 @@
 :pom_013 rr:objectMap :om_013.
 :om_013 a rr:ObjectMap;
     rml:reference "sugars_100g";
-    rr:termType rr:Literal.
+    rr:termType rr:Literal;
+    rr:datatype xsd:decimal.
 :pom_014 a rr:PredicateObjectMap.
 :map_recipe_000 rr:predicateObjectMap :pom_014.
 :pm_014 a rr:PredicateMap.
@@ -169,7 +176,8 @@
 :pom_014 rr:objectMap :om_014.
 :om_014 a rr:ObjectMap;
     rml:reference "fiber_100g";
-    rr:termType rr:Literal.
+    rr:termType rr:Literal;
+    rr:datatype xsd:decimal.
 :pom_015 a rr:PredicateObjectMap.
 :map_recipe_000 rr:predicateObjectMap :pom_015.
 :pm_015 a rr:PredicateMap.
@@ -178,7 +186,8 @@
 :pom_015 rr:objectMap :om_015.
 :om_015 a rr:ObjectMap;
     rml:reference "proteins_100g";
-    rr:termType rr:Literal.
+    rr:termType rr:Literal;
+    rr:datatype xsd:decimal.
 :pom_016 a rr:PredicateObjectMap.
 :map_recipe_000 rr:predicateObjectMap :pom_016.
 :pm_016 a rr:PredicateMap.
@@ -187,7 +196,8 @@
 :pom_016 rr:objectMap :om_016.
 :om_016 a rr:ObjectMap;
     rml:reference "salt_100g";
-    rr:termType rr:Literal.
+    rr:termType rr:Literal;
+    rr:datatype xsd:decimal.
 :pom_017 a rr:PredicateObjectMap.
 :map_recipe_000 rr:predicateObjectMap :pom_017.
 :pm_017 a rr:PredicateMap.
@@ -196,4 +206,5 @@
 :pom_017 rr:objectMap :om_017.
 :om_017 a rr:ObjectMap;
     rml:reference "sodium_100g";
-    rr:termType rr:Literal.
+    rr:termType rr:Literal;
+    rr:datatype xsd:decimal.
