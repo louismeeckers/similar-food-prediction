@@ -104,7 +104,7 @@ java -jar _limes.jar _config_limes.xml
 # default run
 java -jar _amie.jar statements.tsv
 # save into file
-java -jar _amie.jar -UseGCOverheadLimit -Xmx4G -oute statements.tsv > output/rules_default.out -maxad 4 -minis 1
+java -jar _amie.jar -oute statements.tsv > output/rules_default.out -maxad 3 -minis 1 -optimai
 # help / documentation
 java -jar _amie.jar -h
 ```
@@ -133,38 +133,38 @@ INSERT {
 # SELECT DISTINCT ?product1 ?product1Nutriscore ?product2 ?product2Nutriscore
 WHERE { 
 	?product1 a schema:Product ;
-          rdfs:label ?product1Label ;
-          food:nutritionScoreFrPer100g ?product1Nutriscore ;
-          ken:mainCategory ?mainCategory1 ;
-          fo:shopping_category ?category1 ;
-          fo:shopping_category ?category11 .
-    ?category1 a fo:ShoppingCategory ;
-          rdfs:label ?category1Label .
-    ?product2 a schema:Product ;
-          rdfs:label ?product2Label ;
-          food:nutritionScoreFrPer100g ?product2Nutriscore ;
-          ken:mainCategory ?mainCategory2 ;
-          fo:shopping_category ?category2 ;
-          fo:shopping_category ?category22 .
-    ?category2 a fo:ShoppingCategory ;
-          rdfs:label ?category2Label .
+		rdfs:label ?product1Label ;
+		food:nutritionScoreFrPer100g ?product1Nutriscore ;
+		ken:mainCategory ?mainCategory1 ;
+		fo:shopping_category ?category1 ;
+		fo:shopping_category ?category11 .
+	?category1 a fo:ShoppingCategory ;
+		rdfs:label ?category1Label .
+	?product2 a schema:Product ;
+		rdfs:label ?product2Label ;
+		food:nutritionScoreFrPer100g ?product2Nutriscore ;
+		ken:mainCategory ?mainCategory2 ;
+		fo:shopping_category ?category2 ;
+		fo:shopping_category ?category22 .
+	?category2 a fo:ShoppingCategory ;
+		rdfs:label ?category2Label .
 
-    FILTER(?product1Nutriscore = <https://w3id.org/um/ken4256/nutriscore/a> || ?product1Nutriscore = <https://w3id.org/um/ken4256/nutriscore/b>)
-    FILTER(?product2Nutriscore != <https://w3id.org/um/ken4256/nutriscore/a> && ?product2Nutriscore != <https://w3id.org/um/ken4256/nutriscore/b>)
+	FILTER(?product1Nutriscore = <https://w3id.org/um/ken4256/nutriscore/a> || ?product1Nutriscore = <https://w3id.org/um/ken4256/nutriscore/b>)
+	FILTER(?product2Nutriscore != <https://w3id.org/um/ken4256/nutriscore/a> && ?product2Nutriscore != <https://w3id.org/um/ken4256/nutriscore/b>)
     
-    FILTER(?product1 != ?product2)
+	FILTER(?product1 != ?product2)
     
-    FILTER(?mainCategory1 != ?category1)
-    FILTER(?mainCategory1 != ?category11)
-    FILTER(?category1 != ?category11)
+	FILTER(?mainCategory1 != ?category1)
+	FILTER(?mainCategory1 != ?category11)
+	FILTER(?category1 != ?category11)
     
-    FILTER(?mainCategory2 != ?category2)
-     FILTER(?mainCategory2 != ?category22)
-    FILTER(?category2 != ?category22)
+	FILTER(?mainCategory2 != ?category2)
+	FILTER(?mainCategory2 != ?category22)
+	FILTER(?category2 != ?category22)
     
-    FILTER(?mainCategory1 = ?mainCategory2)
-    FILTER(?category1 = ?category2)
-    FILTER(?category11 = ?category22)
+	FILTER(?mainCategory1 = ?mainCategory2)
+	FILTER(?category1 = ?category2)
+	FILTER(?category11 = ?category22)
 }
 ```
 
@@ -173,8 +173,8 @@ WHERE {
 SELECT ?product ?mainCategory (COUNT(?similarProduct) AS ?count)
 WHERE { 
 	?product a schema:Product ;
-          ken:mainCategory ?mainCategory ;
-          ken:similarHealthierProduct ?similarProduct.
+		ken:mainCategory ?mainCategory ;
+		ken:similarHealthierProduct ?similarProduct.
 }
 GROUP BY ?product ?mainCategory
 ORDER BY DESC(?count)
@@ -185,13 +185,63 @@ ORDER BY DESC(?count)
 SELECT DISTINCT (COUNT(DISTINCT ?product) AS ?count)
 WHERE { 
 	?product a schema:Product ;
-          ken:mainCategory ?mainCategory ;
-          fo:shopping_category ?category1 ;
-#          fo:shopping_category ?category11 ;
-    	  ken:similarHealthierProduct ?similarProduct .
+		ken:mainCategory ?mainCategory ;
+		fo:shopping_category ?category1 ;
+		fo:shopping_category ?category11 ;
+	    	ken:similarHealthierProduct ?similarProduct .
     
-    FILTER(?mainCategory = <https://w3id.org/um/ken4256/category/yogurts>)
-    FILTER(?category1 = <https://w3id.org/um/ken4256/category/dairies>)
-#    FILTER(?category11 = <https://w3id.org/um/ken4256/category/fermented-milk-products>)
+	FILTER(?mainCategory = <https://w3id.org/um/ken4256/category/yogurts>)
+	FILTER(?category1 = <https://w3id.org/um/ken4256/category/dairies>)
+	FILTER(?category11 = <https://w3id.org/um/ken4256/category/fermented-milk-products>)
 }
+```
+
+## Count number of products specific to a nutriscore (e.g. A)
+```
+SELECT (COUNT(DISTINCT ?product) AS ?count)
+WHERE { 
+	?product a schema:Product ;
+		food:nutritionScoreFrPer100g ?nutriscore .
+
+	FILTER (?nutriscore = <https://w3id.org/um/ken4256/nutriscore/e>)
+}
+```
+
+## Get all similar healthier products based on a product (e.g. product id = 0000005016)
+```
+SELECT DISTINCT ?productOutput ?productOuputLabel
+WHERE { 
+	?productGiven a schema:Product ;
+		rdfs:label ?productGivenLabel ;
+		ken:similarHealthierProduct ?productOutput .
+	?productOutput a schema:Product ;
+		rdfs:label ?productOuputLabel .
+
+	FILTER(?productGiven = <https://w3id.org/um/ken4256/product/0000005016>)
+}
+```
+
+## Get all similar healthier products based based on a ingredient id and an ingredient label
+With this query we have two options to filter products.
+1) We can provide the id of an ingredient we want in products (e.g. we want the product to be made of chocolate)
+2) We can also provide a part of the label of an ingredient we want (without FILTER NOT EXISTS) or not in products (e.g. we do not want the product to be made of milk)
++) In this example, we allow the products returned to be of nutriscore A or B.
+```
+SELECT DISTINCT ?productOutput ?nutriscore ?productOuputLabel
+WHERE { 
+	?productOutput a schema:Product ;
+		food:nutritionScoreFrPer100g ?nutriscore ;
+		fo:ingredients ?ingredientForId ;
+		fo:ingredients ?ingredientForLabel ;
+		rdfs:label ?productOuputLabel .
+	?ingredientForLabel a fo:Ingredient ;
+		rdfs:label ?ingredientLabel .
+
+	FILTER(?nutriscore = <https://w3id.org/um/ken4256/nutriscore/a> || ?nutriscore = <https://w3id.org/um/ken4256/nutriscore/b>)
+	FILTER(?ingredientForId = <https://w3id.org/um/ken4256/ingredient/chocolate>)
+	FILTER NOT EXISTS {
+		FILTER contains(?ingredientLabel, "milk")
+	}
+}
+ORDER BY ?nutriscore
 ```
