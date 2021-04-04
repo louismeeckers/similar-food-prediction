@@ -94,7 +94,7 @@ java -jar _rmlmapper.jar -m countries.rml.ttl -o countries.ttl -s turtle
 1. Explore > Visual Graph
 2. Search RDF resources (e.g. https://w3id.org/um/ken4256/category/cakes)
 
-# Linking - countries (dbpedia)
+# Linking - product to product
 ```bash
 java -jar _limes.jar _config_limes.xml
 ```

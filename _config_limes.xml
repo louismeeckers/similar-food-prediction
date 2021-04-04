@@ -33,41 +33,40 @@
     <NAMESPACE>https://www.bbc.co.uk/ontologies/fo/</NAMESPACE>
     <LABEL>fo</LABEL>
   </PREFIX>
-  <PREFIX>
 
   <SOURCE>
-    <ID>openfoodfact</ID>
-    <ENDPOINT>countries.ttl</ENDPOINT>
+    <ID>openfoodfact1</ID>
+    <ENDPOINT>products.ttl</ENDPOINT>
     <VAR>?y</VAR>
     <PAGESIZE>5000</PAGESIZE>
-    <RESTRICTION>?y rdf:type schema:Country</RESTRICTION>
+    <RESTRICTION>?y rdf:type schema:Product</RESTRICTION>
     <PROPERTY>rdfs:label AS lowercase</PROPERTY>
     <TYPE>TURTLE</TYPE>
   </SOURCE>  
 
   <TARGET>
-    <ID>dbpedia</ID>
-    <ENDPOINT>http://dbpedia.org/sparql</ENDPOINT>
+    <ID>openfoodfact2</ID>
+    <ENDPOINT>products.ttl</ENDPOINT>
     <VAR>?x</VAR>
     <PAGESIZE>5000</PAGESIZE>
-    <RESTRICTION>?x rdf:type dbo:Country</RESTRICTION>
+    <RESTRICTION>?x rdf:type schema:Product</RESTRICTION>
     <PROPERTY>rdfs:label AS lowercase</PROPERTY>
-    <!-- <TYPE>sparql</TYPE> -->
+    <TYPE>TURTLE</TYPE>
   </TARGET>
 
   <METRIC>
-    MongeElkan(x.rdfs:label, y.rdfs:label)
+    Levenshtein(x.rdfs:label, y.rdfs:label)
   </METRIC>
 
   <ACCEPTANCE>
-    <THRESHOLD>0.70</THRESHOLD>
+    <THRESHOLD>0.90</THRESHOLD>
     <FILE>limes_accepted.nt</FILE>
-    <RELATION>owl:sameAs</RELATION>
+    <RELATION>schema:isSimilarTo</RELATION>
   </ACCEPTANCE>
   <REVIEW>
     <THRESHOLD>0.3</THRESHOLD>
     <FILE>limes_reviewme.nt</FILE>
-    <RELATION>owl:sameAs</RELATION>
+    <RELATION>schema:isSimilarTo</RELATION>
   </REVIEW>
 
   <EXECUTION>
