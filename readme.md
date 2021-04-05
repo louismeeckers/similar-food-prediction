@@ -9,7 +9,7 @@ there will wrong relations will be created too.
 # Data
 Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization.
 It consists of a database of food products with ingredients, allergens, nutrition facts and all the tidbits of information we can find on product labels.
-The database gathers around 1 683 756 products.
+The database gathers around 1,637,564 products.
 CSV Data Export:
 https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv
 
@@ -244,4 +244,77 @@ WHERE {
 	}
 }
 ORDER BY ?nutriscore
+```
+
+## Get all similar healthier products based based on a product id and where (country) the product is available (e.g. product id = 0073755603888, country label = France) 
+```
+SELECT DISTINCT ?productOutput ?nutriscore ?productOuputLabel
+WHERE {
+	?productGiven a schema:Product ;
+		rdfs:label ?productGivenLabel ;
+		ken:similarHealthierProduct ?productOutput .
+	?productOutput a schema:Product ;
+		food:nutritionScoreFrPer100g ?nutriscore ;
+		fo:ingredients ?ingredientForId ;
+		fo:ingredients ?ingredientForLabel ;
+  		essglobal:isAvailableAt ?productOutputCountry ;
+		rdfs:label ?productOuputLabel .
+	?ingredientForLabel a fo:Ingredient ;
+		rdfs:label ?ingredientLabel .
+    ?productOutputCountry a schema:Country ;
+        rdfs:label ?productOutputCountryLabel .
+
+	FILTER(?productGiven = <https://w3id.org/um/ken4256/product/0073755603888>)
+    FILTER(?productOutputCountryLabel = "France") 
+}
+ORDER BY ?nutriscore
+```
+
+## Get all products which have shopping category 'cakes' and which contain chocolate anf nutriscore A or B
+```
+SELECT DISTINCT ?product ?productOuputLabel ?nutriscore
+WHERE {
+    ?product a schema:Product ;
+        food:nutritionScoreFrPer100g ?nutriscore ;
+        fo:shopping_category ?productShoppingCategory ;
+        fo:ingredients ?ingredientForLabel ;
+        rdfs:label ?productOuputLabel .
+    ?ingredientForLabel a fo:Ingredient ;
+        rdfs:label ?ingredientLabel .
+
+    FILTER(?productShoppingCategory = <https://w3id.org/um/ken4256/category/cakes>)
+    FILTER contains(?ingredientLabel, "chocolat")
+    FILTER(?nutriscore = <https://w3id.org/um/ken4256/nutriscore/a>
+    || ?nutriscore = <https://w3id.org/um/ken4256/nutriscore/b>)
+}
+ORDER BY ?nutriscore
+```
+
+## Get all pair of products which are similar (relations created by the linking)
+128,592 / 2 = 64,296 pairs (divided per 2 because the relation is bidirectional)
+```
+SELECT ?product ?productName ?similarProduct ?similarProductName
+WHERE { 
+	?product a schema:Product ;
+        rdfs:label ?productName ;
+		schema:isSimilarTo ?similarProduct .
+    ?similarProduct a schema:Product ;
+        rdfs:label ?similarProductName .
+}
+```
+
+## Get all pair of product which are similar of a different country (relations created by the linking)
+41,052 / 2 = 20,526 pairs (divided per 2 because the relation is bidirectional)
+```
+SELECT ?product ?productName ?similarProduct ?similarProductName
+WHERE { 
+	?product a schema:Product ;
+        rdfs:label ?productName ;
+		schema:isSimilarTo ?similarProduct ;
+    	essglobal:isAvailableAt ?productCountry .
+    ?similarProduct a schema:Product ;
+        rdfs:label ?similarProductName ;
+    	essglobal:isAvailableAt ?similarProductCountry .
+    FILTER(?productCountry != ?similarProductCountry)
+}
 ```

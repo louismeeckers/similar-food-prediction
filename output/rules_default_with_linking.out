@@ -1,0 +1,159 @@
+Assuming 9 as type relation
+Loading files... 
+  Starting statements.tsv
+  Finished statements.tsv, still running: 0
+Loaded 2354844 facts in 9.96 s using 153 MB
+Using HeadCoverage as pruning metric with minimum threshold 0.01
+Using recursivity limit 3
+Default mining assistant that defines support by counting support on both head variables
+No minimum threshold on standard confidence
+Filtering on PCA confidence with minimum threshold 0.1
+Constants in the arguments of relations are disabled
+Lossless (query refinement) heuristics enabled
+MRT calls: 0
+Starting the mining phase... Using 12 threads
+Rule	Head Coverage	Std Confidence	PCA Confidence	Positive Examples	Body size	PCA Body size	Functional variable
+
+1) Unuseful, already the case
+?b  <https://schema.org/isSimilarTo>  ?a   => ?a  <https://schema.org/isSimilarTo>  ?b
+1	1	1	104914	104914	104914	-1
+
+2) Low confidence
+?a  <https://www.bbc.co.uk/ontologies/fo/shopping_category>  ?b   => ?a  <https://w3id.org/um/ken4256/mainCategory>  ?b
+1	0.168948117	0.168948117	71782	424876	424876	-1
+
+3) Unuseful, already the case
+?a  <https://w3id.org/um/ken4256/mainCategory>  ?b   => ?a  <https://www.bbc.co.uk/ontologies/fo/shopping_category>  ?b
+0.168948117	1	1	71782	71782	71782	-1
+
+4) Low confidence
+?a  <https://schema.org/isSimilarTo>  ?h  ?h  <https://w3id.org/um/ken4256/mainCategory>  ?b   => ?a  <https://w3id.org/um/ken4256/mainCategory>  ?b
+0.16745145	0.26681465	0.26681465	12020	45050	45050	-1
+
+5) Medium confidence
+?h  <http://purl.org/essglobal/vocab/isAvailableAt>  ?b  ?a  <https://schema.org/isSimilarTo>  ?h   => ?a  <http://purl.org/essglobal/vocab/isAvailableAt>  ?b
+0.206291274	0.504477612	0.504477612	16900	33500	33500	-1
+
+6) Medium confidence
+?g  <http://purl.org/essglobal/vocab/isAvailableAt>  ?b  ?g  <https://schema.org/isSimilarTo>  ?a   => ?a  <http://purl.org/essglobal/vocab/isAvailableAt>  ?b
+0.206291274	0.504477612	0.504477612	16900	33500	33500	-1
+
+7) Medium confidence
+?h  <http://data.lirmm.fr/ontologies/food#nutritionScoreFrPer100g>  ?b  ?a  <https://schema.org/isSimilarTo>  ?h   => ?a  <http://data.lirmm.fr/ontologies/food#nutritionScoreFrPer100g>  ?b
+0.210387005	0.542028569	0.542028569	15102	27862	27862	-1
+
+8) Low confidence
+?g  <https://schema.org/isSimilarTo>  ?a  ?g  <https://w3id.org/um/ken4256/mainCategory>  ?b   => ?a  <https://w3id.org/um/ken4256/mainCategory>  ?b
+0.16745145	0.26681465	0.26681465	12020	45050	45050	-1
+
+9) Medium confidence
+?g  <http://data.lirmm.fr/ontologies/food#nutritionScoreFrPer100g>  ?b  ?g  <https://schema.org/isSimilarTo>  ?a   => ?a  <http://data.lirmm.fr/ontologies/food#nutritionScoreFrPer100g>  ?b
+0.210387005	0.542028569	0.542028569	15102	27862	27862	-1
+
+10) Low confidence
+?h  <http://purl.org/essglobal/vocab/isAvailableAt>  ?b  ?a  <https://w3id.org/um/ken4256/similarHealthierProduct>  ?h   => ?a  <http://purl.org/essglobal/vocab/isAvailableAt>  ?b
+0.221622743	0.143178216	0.143178216	18156	126807	126807	-1
+
+11) Low confidence
+?g  <http://purl.org/essglobal/vocab/isAvailableAt>  ?b  ?g  <https://w3id.org/um/ken4256/similarHealthierProduct>  ?a   => ?a  <http://purl.org/essglobal/vocab/isAvailableAt>  ?b
+0.142792622	0.131438202	0.131438202	11698	89000	89000	-1
+
+12) Unuseful, already the case
+?h  <https://w3id.org/um/ken4256/mainCategory>  ?b  ?a  <https://w3id.org/um/ken4256/similarHealthierProduct>  ?h   => ?a  <https://w3id.org/um/ken4256/mainCategory>  ?b
+0.331225098	1	1	23776	23776	23776	-1
+
+13) Unuseful, already the case
+?g  <https://w3id.org/um/ken4256/mainCategory>  ?b  ?g  <https://w3id.org/um/ken4256/similarHealthierProduct>  ?a   => ?a  <https://w3id.org/um/ken4256/mainCategory>  ?b
+0.196219108	1	1	14085	14085	14085	-1
+
+14) Unuseful, already the case
+?h  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>  ?b  ?a  <https://schema.org/isSimilarTo>  ?h   => ?a  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>  ?b
+0.085991999	1	1	17862	17862	17862	-1
+
+15) High confidence
+?a  <https://schema.org/isSimilarTo>  ?h  ?b  <https://schema.org/isSimilarTo>  ?h   => ?a  <https://schema.org/isSimilarTo>  ?b
+0.93943611	0.84657539	0.84657539	98560	116422	116422	-1
+
+16) High confidence
+?h  <https://schema.org/isSimilarTo>  ?b  ?a  <https://schema.org/isSimilarTo>  ?h   => ?a  <https://schema.org/isSimilarTo>  ?b
+0.93943611	0.84657539	0.84657539	98560	116422	116422	-1
+
+17) Unuseful, already the case
+?g  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>  ?b  ?g  <https://schema.org/isSimilarTo>  ?a   => ?a  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>  ?b
+0.085991999	1	1	17862	17862	17862	-1
+
+18) High confidence
+?g  <https://schema.org/isSimilarTo>  ?a  ?g  <https://schema.org/isSimilarTo>  ?b   => ?a  <https://schema.org/isSimilarTo>  ?b
+0.93943611	0.84657539	0.84657539	98560	116422	116422	-1
+
+19) Medium confidence
+?a  <https://schema.org/isSimilarTo>  ?h  ?h  <https://www.bbc.co.uk/ontologies/fo/shopping_category>  ?b   => ?a  <https://www.bbc.co.uk/ontologies/fo/shopping_category>  ?b
+0.238674343	0.554736819	0.554736819	101407	182802	182802	-1
+
+20) Medium confidence
+?a  <https://schema.org/isSimilarTo>  ?h  ?h  <https://w3id.org/um/ken4256/mainCategory>  ?b   => ?a  <https://www.bbc.co.uk/ontologies/fo/shopping_category>  ?b
+0.04126145	0.389145394	0.389145394	17531	45050	45050	-1
+
+21) Medium confidence
+?g  <https://schema.org/isSimilarTo>  ?a  ?g  <https://www.bbc.co.uk/ontologies/fo/shopping_category>  ?b   => ?a  <https://www.bbc.co.uk/ontologies/fo/shopping_category>  ?b
+0.238674343	0.554736819	0.554736819	101407	182802	182802	-1
+
+22) Medium confidence
+?g  <https://schema.org/isSimilarTo>  ?a  ?g  <https://w3id.org/um/ken4256/mainCategory>  ?b   => ?a  <https://www.bbc.co.uk/ontologies/fo/shopping_category>  ?b
+0.04126145	0.389145394	0.389145394	17531	45050	45050	-1
+
+23) Unuseful, already the case
+?g  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>  ?b  ?g  <https://w3id.org/um/ken4256/similarHealthierProduct>  ?a   => ?a  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>  ?b
+0.067808605	1	1	14085	14085	14085	-1
+
+24) Unuseful, already the case
+?h  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>  ?b  ?a  <https://w3id.org/um/ken4256/similarHealthierProduct>  ?h   => ?a  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>  ?b
+0.114463429	1	1	23776	23776	23776	-1
+
+25) Low confidence
+?b  <https://schema.org/isSimilarTo>  ?h  ?a  <https://w3id.org/um/ken4256/similarHealthierProduct>  ?h   => ?a  <https://w3id.org/um/ken4256/similarHealthierProduct>  ?b
+0.106727524	0.147131895	0.147131895	53477	363463	363463	-1
+
+26) Medium confidence
+?a  <https://w3id.org/um/ken4256/similarHealthierProduct>  ?h  ?h  <https://www.bbc.co.uk/ontologies/fo/shopping_category>  ?b   => ?a  <https://www.bbc.co.uk/ontologies/fo/shopping_category>  ?b
+0.317520877	0.454437356	0.454437356	134907	296866	296866	-1
+
+27) Unuseful, already the case
+?g  <https://w3id.org/um/ken4256/mainCategory>  ?b  ?g  <https://w3id.org/um/ken4256/similarHealthierProduct>  ?a   => ?a  <https://www.bbc.co.uk/ontologies/fo/shopping_category>  ?b
+0.033150849	1	1	14085	14085	14085	-1
+
+28) Unuseful, already the case
+?h  <https://w3id.org/um/ken4256/mainCategory>  ?b  ?a  <https://w3id.org/um/ken4256/similarHealthierProduct>  ?h   => ?a  <https://www.bbc.co.uk/ontologies/fo/shopping_category>  ?b
+0.055959857	1	1	23776	23776	23776	-1
+
+29) Medium confidence
+?g  <https://w3id.org/um/ken4256/similarHealthierProduct>  ?a  ?g  <https://www.bbc.co.uk/ontologies/fo/shopping_category>  ?b   => ?a  <https://www.bbc.co.uk/ontologies/fo/shopping_category>  ?b
+0.209133959	0.446546222	0.446546222	88856	198985	198985	-1
+
+30) Medium confidence
+?a  <https://schema.org/isSimilarTo>  ?h  ?h  <https://w3id.org/um/ken4256/similarHealthierProduct>  ?b   => ?a  <https://w3id.org/um/ken4256/similarHealthierProduct>  ?b
+0.111954433	0.204532859	0.394129095	56096	274264	142329	-1
+
+31) Low confidence
+?a  <https://w3id.org/um/ken4256/mainCategory>  ?h  ?b  <https://w3id.org/um/ken4256/mainCategory>  ?h   => ?a  <https://w3id.org/um/ken4256/similarHealthierProduct>  ?b
+1	0.060415453	0.105231666	501061	8293590	4761504	-1
+
+32) Low confidence
+?g  <https://schema.org/isSimilarTo>  ?b  ?a  <https://w3id.org/um/ken4256/similarHealthierProduct>  ?g   => ?a  <https://w3id.org/um/ken4256/similarHealthierProduct>  ?b
+0.106727524	0.147131895	0.147131895	53477	363463	363463	-1
+
+33) Medium confidence
+?g  <https://schema.org/isSimilarTo>  ?a  ?g  <https://w3id.org/um/ken4256/similarHealthierProduct>  ?b   => ?a  <https://w3id.org/um/ken4256/similarHealthierProduct>  ?b
+0.111954433	0.204532859	0.394129095	56096	274264	142329	-1
+
+34) Low confidence
+?a  <https://schema.org/isSimilarTo>  ?h  ?h  <https://www.bbc.co.uk/ontologies/fo/ingredients>  ?b   => ?a  <https://www.bbc.co.uk/ontologies/fo/ingredients>  ?b
+0.104820558	0.153931753	0.153931753	93373	606587	606587	-2
+
+35) Low confidence
+?g  <https://schema.org/isSimilarTo>  ?a  ?g  <https://www.bbc.co.uk/ontologies/fo/ingredients>  ?b   => ?a  <https://www.bbc.co.uk/ontologies/fo/ingredients>  ?b
+0.104820558	0.153931753	0.153931753	93373	606587	606587	-2
+
+Mining done in 7 min, 50 s
+Total time 7 min, 60 s
+35 rules mined.

@@ -1,0 +1,58 @@
+Assuming 9 as type relation
+Loading files... 
+  Starting statements.tsv
+  Finished statements.tsv, still running: 0
+Loaded 2249930 facts in 8.40 s using 13 MB
+Using HeadCoverage as pruning metric with minimum threshold 0.01
+Using recursivity limit 3
+Default mining assistant that defines support by counting support on both head variables
+No minimum threshold on standard confidence
+Filtering on PCA confidence with minimum threshold 0.1
+Constants in the arguments of relations are disabled
+Lossless (query refinement) heuristics enabled
+MRT calls: 0
+Starting the mining phase... Using 12 threads
+Rule	Head Coverage	Std Confidence	PCA Confidence	Positive Examples	Body size	PCA Body size	Functional variable
+
+?a  <https://www.bbc.co.uk/ontologies/fo/shopping_category>  ?b   => ?a  <https://w3id.org/um/ken4256/mainCategory>  ?b
+1	0.168948117	0.168948117	71782	424876	424876	-1
+
+?a  <https://w3id.org/um/ken4256/mainCategory>  ?b   => ?a  <https://www.bbc.co.uk/ontologies/fo/shopping_category>  ?b
+0.168948117	1	1	71782	71782	71782	-1
+
+?h  <https://w3id.org/um/ken4256/mainCategory>  ?b  ?a  <https://w3id.org/um/ken4256/similarHealthierProduct>  ?h   => ?a  <https://www.bbc.co.uk/ontologies/fo/shopping_category>  ?b
+0.055959857	1	1	23776	23776	23776	-1
+
+?h  <http://purl.org/essglobal/vocab/isAvailableAt>  ?b  ?a  <https://w3id.org/um/ken4256/similarHealthierProduct>  ?h   => ?a  <http://purl.org/essglobal/vocab/isAvailableAt>  ?b
+0.221622743	0.143178216	0.143178216	18156	126807	126807	-1
+
+?h  <https://w3id.org/um/ken4256/mainCategory>  ?b  ?a  <https://w3id.org/um/ken4256/similarHealthierProduct>  ?h   => ?a  <https://w3id.org/um/ken4256/mainCategory>  ?b
+0.331225098	1	1	23776	23776	23776	-1
+
+?g  <https://w3id.org/um/ken4256/mainCategory>  ?b  ?g  <https://w3id.org/um/ken4256/similarHealthierProduct>  ?a   => ?a  <https://w3id.org/um/ken4256/mainCategory>  ?b
+0.196219108	1	1	14085	14085	14085	-1
+
+?h  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>  ?b  ?a  <https://w3id.org/um/ken4256/similarHealthierProduct>  ?h   => ?a  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>  ?b
+0.114463429	1	1	23776	23776	23776	-1
+
+?g  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>  ?b  ?g  <https://w3id.org/um/ken4256/similarHealthierProduct>  ?a   => ?a  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>  ?b
+0.067808605	1	1	14085	14085	14085	-1
+
+?g  <https://w3id.org/um/ken4256/mainCategory>  ?b  ?g  <https://w3id.org/um/ken4256/similarHealthierProduct>  ?a   => ?a  <https://www.bbc.co.uk/ontologies/fo/shopping_category>  ?b
+0.033150849	1	1	14085	14085	14085	-1
+
+?g  <https://w3id.org/um/ken4256/similarHealthierProduct>  ?a  ?g  <https://www.bbc.co.uk/ontologies/fo/shopping_category>  ?b   => ?a  <https://www.bbc.co.uk/ontologies/fo/shopping_category>  ?b
+0.209133959	0.446546222	0.446546222	88856	198985	198985	-1
+
+?g  <http://purl.org/essglobal/vocab/isAvailableAt>  ?b  ?g  <https://w3id.org/um/ken4256/similarHealthierProduct>  ?a   => ?a  <http://purl.org/essglobal/vocab/isAvailableAt>  ?b
+0.142792622	0.131438202	0.131438202	11698	89000	89000	-1
+
+?a  <https://w3id.org/um/ken4256/similarHealthierProduct>  ?h  ?h  <https://www.bbc.co.uk/ontologies/fo/shopping_category>  ?b   => ?a  <https://www.bbc.co.uk/ontologies/fo/shopping_category>  ?b
+0.317520877	0.454437356	0.454437356	134907	296866	296866	-1
+
+?a  <https://w3id.org/um/ken4256/mainCategory>  ?h  ?b  <https://w3id.org/um/ken4256/mainCategory>  ?h   => ?a  <https://w3id.org/um/ken4256/similarHealthierProduct>  ?b
+1	0.060415453	0.105231666	501061	8293590	4761504	-1
+
+Mining done in 6 min, 27 s
+Total time 6 min, 35 s
+13 rules mined.
